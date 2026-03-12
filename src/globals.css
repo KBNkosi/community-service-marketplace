@@ -1,0 +1,103 @@
+@import 'tailwindcss';
+
+/* Community Service Marketplace Design System */
+:root {
+  /* Brand Colors */
+  --terracotta: #D2691E;
+  --sage: #87A96B;
+  --cream: #FFF8E7;
+  --coral: #FF6B6B;
+  --ocean: #2C3E50;
+  
+  /* Semantic Tokens */
+  --background: #FFF8E7;
+  --foreground: #2C3E50;
+  --card: #FFFFFF;
+  --card-foreground: #2C3E50;
+  --popover: #FFFFFF;
+  --popover-foreground: #2C3E50;
+  --primary: #D2691E;
+  --primary-foreground: #FFFFFF;
+  --secondary: #87A96B;
+  --secondary-foreground: #FFFFFF;
+  --muted: #F5F0E8;
+  --muted-foreground: #64748B;
+  --accent: #FF6B6B;
+  --accent-foreground: #FFFFFF;
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
+  --border: #E5DDD3;
+  --input: #E5DDD3;
+  --ring: #D2691E;
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: #1A1F2E;
+  --foreground: #F5F0E8;
+  --card: #242938;
+  --card-foreground: #F5F0E8;
+  --popover: #242938;
+  --popover-foreground: #F5F0E8;
+  --primary: #E8854A;
+  --primary-foreground: #FFFFFF;
+  --secondary: #9BBF82;
+  --secondary-foreground: #1A1F2E;
+  --muted: #2D3444;
+  --muted-foreground: #94A3B8;
+  --accent: #FF8080;
+  --accent-foreground: #1A1F2E;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: #3D4555;
+  --input: #3D4555;
+  --ring: #E8854A;
+}
+
+@theme inline {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Merriweather', Georgia, serif;
+  
+  /* Brand color utilities */
+  --color-terracotta: var(--terracotta);
+  --color-sage: var(--sage);
+  --color-cream: var(--cream);
+  --color-coral: var(--coral);
+  --color-ocean: var(--ocean);
+  
+  /* Semantic colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
