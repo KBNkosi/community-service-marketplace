@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Search, MapPin } from 'lucide-react'
-import { Button, Input } from '@/components/ui'
-import { cn } from '@/lib/utils'
+import { Button, Input } from '../ui'
+import { cn } from '../../lib/utils'
 
 function SearchBar({ variant = 'default', className }) {
   const [query, setQuery] = useState('')

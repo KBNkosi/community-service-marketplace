@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, Search, Plus, Users, Home } from 'lucide-react'
-import { Button } from '@/components/ui'
-import { cn } from '@/lib/utils'
+import { Button } from '../ui'
+import { cn } from '../../lib/utils'
 
 const navItems = [
   { href: '/', label: 'Home', icon: Home },

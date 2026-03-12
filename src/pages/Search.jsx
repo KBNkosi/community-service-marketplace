@@ -1,10 +1,10 @@
 import { useState, useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { Filter, X, SlidersHorizontal } from 'lucide-react'
-import { Button, Card, CardContent, Badge, Input, Label } from '@/components/ui'
-import { SearchBar, RecommendationCard, categories } from '@/components/features'
-import { sampleTradespeople, neighborhoods } from '@/lib/sample-data'
-import { cn } from '@/lib/utils'
+import { Button, Card, CardContent, Badge, Input, Label } from '../components/ui'
+import { SearchBar, RecommendationCard, categories } from '../components/features'
+import { sampleTradespeople, neighborhoods } from '../lib/sample-data'
+import { cn } from '../lib/utils'
 
 function Search() {
   const [searchParams, setSearchParams] = useSearchParams()

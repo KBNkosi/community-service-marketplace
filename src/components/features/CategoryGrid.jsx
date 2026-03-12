@@ -9,7 +9,7 @@ import {
   TreeDeciduous, 
   Shield 
 } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { cn } from '../../lib/utils'
 
 const categories = [
   { id: 'handyman', name: 'Handyman', icon: Wrench, color: 'bg-terracotta/10 text-terracotta' },

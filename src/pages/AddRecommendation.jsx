@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, CheckCircle, Star, Loader2 } from 'lucide-react'
-import { Button, Card, CardContent, Input, Label, Textarea, Select, Badge } from '@/components/ui'
-import { categories } from '@/components/features'
-import { neighborhoods } from '@/lib/sample-data'
-import { cn } from '@/lib/utils'
+import { Button, Card, CardContent, Input, Label, Textarea, Select, Badge } from '../components/ui'
+import { categories } from '../components/features'
+import { neighborhoods } from '../lib/sample-data'
+import { cn } from '../lib/utils'
 
 const initialFormData = {
   tradespersonName: '',

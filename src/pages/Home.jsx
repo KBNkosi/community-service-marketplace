@@ -1,9 +1,11 @@
+// Home page - landing page with hero section, stats, and featured recommendations
 import { Link } from 'react-router-dom'
 import { ArrowRight, Users, Shield, MessageSquare, Star } from 'lucide-react'
-import { Button, Card, CardContent, Badge } from '@/components/ui'
-import { SearchBar, CategoryGrid, RecommendationCard } from '@/components/features'
-import { sampleTradespeople } from '@/lib/sample-data'
+import { Button, Card, CardContent, Badge } from '../components/ui'
+import { SearchBar, CategoryGrid, RecommendationCard } from '../components/features'
+import { sampleTradespeople } from '../lib/sample-data'
 
+// Statistics to display on the home page
 const stats = [
   { label: 'Trusted Tradespeople', value: '500+' },
   { label: 'Happy Neighbors', value: '2,000+' },
@@ -11,6 +13,7 @@ const stats = [
   { label: 'Neighborhoods', value: '25+' },
 ]
 
+// Key features of the platform
 const features = [
   {
     icon: Users,

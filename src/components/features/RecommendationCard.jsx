@@ -1,9 +1,11 @@
+// RecommendationCard component - displays a tradesperson card with key information
 import { Link } from 'react-router-dom'
 import { MapPin, Star, Users, Phone, CheckCircle } from 'lucide-react'
-import { Card, CardContent, Badge, Button } from '@/components/ui'
-import { cn } from '@/lib/utils'
+import { Card, CardContent, Badge, Button } from '../ui'
+import { cn } from '../../lib/utils'
 
 function RecommendationCard({ tradesperson, className }) {
+  // Extract tradesperson data from props
   const {
     id,
     name,
@@ -12,27 +14,29 @@ function RecommendationCard({ tradesperson, className }) {
     recommendationCount,
     avgRating,
     isVerified,
-    specialties,
     phone,
+    specialties,
   } = tradesperson
 
   return (
-    <Card className={cn('overflow-hidden hover:shadow-lg transition-shadow', className)}>
-      <CardContent className="p-6">
-        <div className="flex items-start justify-between gap-4">
-          <div className="flex-1 min-w-0">
-            {/* Header */}
-            <div className="flex items-center gap-2 mb-1">
-              <Link 
-                to={`/tradesperson/${id}`}
-                className="font-serif text-lg font-bold text-foreground hover:text-primary transition-colors truncate"
-              >
-                {name}
-              </Link>
-              {isVerified && (
-                <CheckCircle className="h-5 w-5 text-secondary flex-shrink-0" />
-              )}
-            </div>
+    // Link to the detailed tradesperson page
+    <Link to={`/tradesperson/${id}`} className={cn('block', className)}>
+      <Card className={cn('overflow-hidden hover:shadow-lg transition-shadow', className)}>
+        <CardContent className="p-6">
+          <div className="flex items-start justify-between gap-4">
+            <div className="flex-1 min-w-0">
+              {/* Header */}
+              <div className="flex items-center gap-2 mb-1">
+                <Link 
+                  to={`/tradesperson/${id}`}
+                  className="font-serif text-lg font-bold text-foreground hover:text-primary transition-colors truncate"
+                >
+                  {name}
+                </Link>
+                {isVerified && (
+                  <CheckCircle className="h-5 w-5 text-secondary flex-shrink-0" />
+                )}
+              </div>
             
             {/* Profession */}
             <p className="text-sm text-muted-foreground mb-3">{profession}</p>
@@ -91,6 +95,7 @@ function RecommendationCard({ tradesperson, className }) {
         </div>
       </CardContent>
     </Card>
+    </Link>
   )
 }
 

@@ -10,8 +10,8 @@ import {
   Calendar,
   MessageSquare 
 } from 'lucide-react'
-import { Button, Card, CardContent, Badge } from '@/components/ui'
-import { sampleTradespeople } from '@/lib/sample-data'
+import { Button, Card, CardContent, Badge } from '../components/ui'
+import { sampleTradespeople } from '../lib/sample-data'
 
 function TradespersonDetail() {
   const { id } = useParams()
