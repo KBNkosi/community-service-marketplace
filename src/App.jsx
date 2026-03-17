@@ -19,6 +19,7 @@ function App() {
           <Route path="/add-recommendation" element={<AddRecommendation />} />
         </Routes>
       </Layout>
+      
     </BrowserRouter>
   )
 }
