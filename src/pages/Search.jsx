@@ -1,5 +1,4 @@
-import { useState, useMemo } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useState } from 'react'
 import { Filter, X, SlidersHorizontal } from 'lucide-react'
 import { Button, Card, CardContent, Badge, Input, Label } from '../components/ui'
 import { SearchBar, RecommendationCard, categories } from '../components/features'
@@ -7,55 +6,49 @@ import { sampleTradespeople, neighborhoods } from '../lib/sample-data'
 import { cn } from '../lib/utils'
 
 function Search() {
-  const [searchParams, setSearchParams] = useSearchParams()
-  const [showMobileFilters, setShowMobileFilters] = useState(false)
+  // Step 1: Simple state management (no URL params yet)
+  const [searchTerm, setSearchTerm] = useState('')
+  const [selectedCategory, setSelectedCategory] = useState('')
+  const [selectedLocation, setSelectedLocation] = useState('')
+  
 
-  const query = searchParams.get('q') || ''
-  const selectedCategory = searchParams.get('category') || ''
-  const selectedLocation = searchParams.get('location') || ''
+  // Step 2: Add simple filter handlers
+  const handleCategorySelect = (cat) => {
+  setSelectedCategory(prev => prev === cat ? '' : cat)
+}
 
-  const filteredTradespeople = useMemo(() => {
-    return sampleTradespeople.filter((person) => {
-      const matchesQuery = !query || 
-        person.name.toLowerCase().includes(query.toLowerCase()) ||
-        person.profession.toLowerCase().includes(query.toLowerCase()) ||
-        person.specialties.some(s => s.toLowerCase().includes(query.toLowerCase()))
-      
-      const matchesCategory = !selectedCategory || person.category === selectedCategory
-      const matchesLocation = !selectedLocation || person.location === selectedLocation
+  const handleLocationSelect = (loc) => {
+  setSelectedLocation(prev => prev === loc ? '' : loc)
+}
 
-      return matchesQuery && matchesCategory && matchesLocation
-    })
-  }, [query, selectedCategory, selectedLocation])
-
-  const updateFilter = (key, value) => {
-    const newParams = new URLSearchParams(searchParams)
-    if (value) {
-      newParams.set(key, value)
-    } else {
-      newParams.delete(key)
-    }
-    setSearchParams(newParams)
+  const handleSearchChange = (term) => {
+    setSearchTerm(term)
   }
 
   const clearFilters = () => {
-    setSearchParams({})
+    setSearchTerm('')
+    setSelectedCategory('')
+    setSelectedLocation('')
   }
 
-  const hasActiveFilters = query || selectedCategory || selectedLocation
+  // Step 3: Simple filtering without useMemo (beginner-friendly)
+  const filteredTradespeople = sampleTradespeople.filter((person) => {
+    const matchesQuery = !searchTerm || 
+      person.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      person.profession.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      person.specialties.some(s => s.toLowerCase().includes(searchTerm.toLowerCase()))
+    
+    const matchesCategory = !selectedCategory || person.category === selectedCategory
+    const matchesLocation = !selectedLocation || person.location === selectedLocation
 
+    return matchesQuery && matchesCategory && matchesLocation
+  })
+
+  const hasActiveFilters = searchTerm || selectedCategory || selectedLocation
+
+  // Step 3: Simple FilterPanel with new handlers
   const FilterPanel = ({ className }) => (
     <div className={cn('space-y-6', className)}>
-      {/* Search Input */}
-      <div>
-        <Label className="text-sm font-medium mb-2 block">Search</Label>
-        <Input
-          type="text"
-          placeholder="Name or specialty..."
-          value={query}
-          onChange={(e) => updateFilter('q', e.target.value)}
-        />
-      </div>
 
       {/* Category Filter */}
       <div>
@@ -66,7 +59,7 @@ function Search() {
               key={cat.id}
               variant={selectedCategory === cat.id ? 'default' : 'outline'}
               className="cursor-pointer"
-              onClick={() => updateFilter('category', selectedCategory === cat.id ? '' : cat.id)}
+              onClick={() => handleCategorySelect(cat.id)}
             >
               {cat.name}
             </Badge>
@@ -83,7 +76,7 @@ function Search() {
               key={location}
               variant={selectedLocation === location ? 'default' : 'outline'}
               className="cursor-pointer"
-              onClick={() => updateFilter('location', selectedLocation === location ? '' : location)}
+              onClick={() => handleLocationSelect(location)}
             >
               {location}
             </Badge>
@@ -109,7 +102,7 @@ function Search() {
           <h1 className="font-serif text-3xl font-bold text-foreground mb-6">
             Find Service Providers
           </h1>
-          <SearchBar className="max-w-2xl" />
+          <SearchBar className="max-w-2xl" onSearch={handleSearchChange} placeholder="Name or specialty..." />
         </div>
       </div>
 
@@ -136,25 +129,17 @@ function Search() {
               <p className="text-muted-foreground">
                 <span className="font-medium text-foreground">{filteredTradespeople.length}</span> service providers found
               </p>
-              <Button 
-                variant="outline" 
-                className="lg:hidden"
-                onClick={() => setShowMobileFilters(true)}
-              >
-                <SlidersHorizontal className="h-4 w-4 mr-2" />
-                Filters
-              </Button>
             </div>
 
             {/* Active Filters Display */}
             {hasActiveFilters && (
               <div className="flex flex-wrap gap-2 mb-6">
-                {query && (
+                {searchTerm && (
                   <Badge variant="secondary" className="gap-1">
-                    Search: {query}
+                    Search: {searchTerm}
                     <X 
                       className="h-3 w-3 cursor-pointer" 
-                      onClick={() => updateFilter('q', '')}
+                      onClick={() => handleSearchChange('')}
                     />
                   </Badge>
                 )}
@@ -163,7 +148,7 @@ function Search() {
                     {categories.find(c => c.id === selectedCategory)?.name}
                     <X 
                       className="h-3 w-3 cursor-pointer" 
-                      onClick={() => updateFilter('category', '')}
+                      onClick={() => handleCategorySelect('')}
                     />
                   </Badge>
                 )}
@@ -172,7 +157,7 @@ function Search() {
                     {selectedLocation}
                     <X 
                       className="h-3 w-3 cursor-pointer" 
-                      onClick={() => updateFilter('location', '')}
+                      onClick={() => handleLocationSelect('')}
                     />
                   </Badge>
                 )}
@@ -201,37 +186,10 @@ function Search() {
           </div>
         </div>
       </div>
+      </div>
 
-      {/* Mobile Filter Modal */}
-      {showMobileFilters && (
-        <div className="fixed inset-0 z-50 lg:hidden">
-          <div 
-            className="absolute inset-0 bg-black/50" 
-            onClick={() => setShowMobileFilters(false)} 
-          />
-          <div className="absolute right-0 top-0 h-full w-full max-w-sm bg-card p-6 overflow-y-auto">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="font-semibold text-lg">Filters</h2>
-              <Button 
-                variant="ghost" 
-                size="icon"
-                onClick={() => setShowMobileFilters(false)}
-              >
-                <X className="h-5 w-5" />
-              </Button>
-            </div>
-            <FilterPanel />
-            <Button 
-              className="w-full mt-6"
-              onClick={() => setShowMobileFilters(false)}
-            >
-              Show Results
-            </Button>
-          </div>
-        </div>
-      )}
-    </div>
   )
+
 }
 
 export default Search
