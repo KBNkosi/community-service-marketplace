@@ -1,4 +1,3 @@
-// Home page - landing page with hero section, stats, and featured recommendations
 import { Link } from 'react-router-dom'
 import { ArrowRight, Users, Shield, MessageSquare, Star } from 'lucide-react'
 import { Button, Card, CardContent, Badge } from '../components/ui'
