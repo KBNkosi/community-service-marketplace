@@ -3,17 +3,17 @@ import { Send } from 'lucide-react'
 import { Button, Input } from '../ui'
 
 export function ChatInput({ onSend }) {
-  // State to store the current input value
+  
   const [message, setMessage] = useState('')
 
   // Handle form submission when user clicks send or presses Enter
   const handleSubmit = (e) => {
-    e.preventDefault() // Prevent page refresh
+    e.preventDefault() 
     
-    // Only send if message has content (not just whitespace)
+    
     if (message.trim()) {
-      onSend(message.trim()) // Send message to parent component
-      setMessage('') // Clear input field after sending
+      onSend(message.trim()) 
+      setMessage('') 
     }
   }
 
@@ -27,7 +27,7 @@ export function ChatInput({ onSend }) {
         className="flex-1"
       />
       
-      {/* Send button - disabled when input is empty */}
+      {/* Send button */}
       <Button type="submit" size="icon" disabled={!message.trim()}>
         <Send className="w-4 h-4" />
       </Button>

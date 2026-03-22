@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 
 export function MessageBubble({ message }) {
-  // Determine message styling based on type
+  
   const isUser = message.type === 'user'
   
   return (

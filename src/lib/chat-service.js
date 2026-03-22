@@ -25,13 +25,13 @@ const responseTemplates = {
 // Main function to process user messages
 export function processMessage(message) {
   try {
-    // Step 1: Classify the user's intent (what service they need)
+    
     const category = classifyIntent(message)
  
-    // Step 2: Get the appropriate response template
+   
     let response = responseTemplates[category]
  
-    // Step 3: Find relevant service providers if we identified a specific category
+  
     let suggestions = null
     if (category !== 'general') {
       suggestions = getProviderSuggestions(category)
@@ -42,7 +42,7 @@ export function processMessage(message) {
       }
     }
  
-    // Step 4: Return the complete response
+    
     return {
       response: response,
       suggestions: suggestions,
@@ -64,34 +64,34 @@ function classifyIntent(message) {
   const messageLower = message.toLowerCase()
   const scores = {}
  
-  // Count how many keywords match for each category
+  
   for (const [category, keywords] of Object.entries(keywordMappings)) {
     scores[category] = keywords.filter(keyword => 
       messageLower.includes(keyword)
     ).length
   }
  
-  // Find the category with the most keyword matches
+  
   const bestCategory = Object.keys(scores).reduce((a, b) => 
     scores[a] > scores[b] ? a : b
   )
  
-  // Return the best category if we found any matches, otherwise return 'general'
+  
   return scores[bestCategory] > 0 ? bestCategory : 'general'
 }
  
-// Function to get provider suggestions from your existing data
+// Function to get provider suggestions from existing data
 function getProviderSuggestions(category, limit = 2) {
-  // Filter your existing tradespeople data by category
+  
   const filteredProviders = sampleTradespeople.filter(person => 
     person.category === category
   )
  
-  // Take the top 'limit' providers and format them for the chat
+  
   return filteredProviders.slice(0, limit).map(person => ({
     id: person.id,
     name: person.name,
     category: person.category,
-    specialty: person.specialties.slice(0, 2).join(', ') // Show first 2 specialties
+    specialty: person.specialties.slice(0, 2).join(', ') 
   }))
 }

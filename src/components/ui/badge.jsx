@@ -2,7 +2,7 @@ import { cn } from '../../lib/utils'
 
 // Simple Badge component for displaying status or category labels
 function Badge({ className, variant = 'default', ...props }) {
-  // Define base styles for all badges
+  
   const baseStyles = 'inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2'
   
   // Define variant styles

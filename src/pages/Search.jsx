@@ -6,13 +6,13 @@ import { sampleTradespeople, neighborhoods } from '../lib/sample-data'
 import { cn } from '../lib/utils'
 
 function Search() {
-  // Step 1: Simple state management (no URL params yet)
+  
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('')
   const [selectedLocation, setSelectedLocation] = useState('')
   
 
-  // Step 2: Add simple filter handlers
+  
   const handleCategorySelect = (cat) => {
   setSelectedCategory(prev => prev === cat ? '' : cat)
 }
@@ -31,7 +31,7 @@ function Search() {
     setSelectedLocation('')
   }
 
-  // Step 3: Simple filtering without useMemo (beginner-friendly)
+  
   const filteredTradespeople = sampleTradespeople.filter((person) => {
     const matchesQuery = !searchTerm || 
       person.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -46,7 +46,7 @@ function Search() {
 
   const hasActiveFilters = searchTerm || selectedCategory || selectedLocation
 
-  // Step 3: Simple FilterPanel with new handlers
+  
   const FilterPanel = ({ className }) => (
     <div className={cn('space-y-6', className)}>
 

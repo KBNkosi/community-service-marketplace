@@ -6,10 +6,8 @@ import { MessageBubble } from './MessageBubble'
 import { processMessage } from '../../lib/chat-service'
 
 export function ChatBot() {
-  // State to control if chat window is open or closed
   const [isOpen, setIsOpen] = useState(false)
   
-  // State to store all chat messages
   const [messages, setMessages] = useState([
     {
       id: '1',
@@ -23,7 +21,7 @@ export function ChatBot() {
   const handleSendMessage = (message) => {
     console.log('Processing message:', message) // Debug log
     
-    // Add user message
+    
     const userMessage = {
       id: Date.now().toString(),
       type: 'user',
@@ -32,11 +30,11 @@ export function ChatBot() {
     }
     setMessages(prev => [...prev, userMessage])
     
-    // Process message with chat service
+   
     const botResponse = processMessage(message)
     console.log('Bot response:', botResponse) // Debug log
     
-    // Add bot message
+   
     const botMessage = {
       id: (Date.now() + 1).toString(),
       type: 'bot',
@@ -78,14 +76,14 @@ export function ChatBot() {
         </Button>
       </div>
 
-      {/* Chat Messages Area - Now using MessageBubble component */}
+      {/* Chat Messages Area */}
       <div className="flex-1 overflow-y-auto p-4">
         {messages.map((message) => (
           <MessageBubble key={message.id} message={message} />
         ))}
       </div>
 
-      {/* Chat Input Area - Now using ChatInput component */}
+      {/* Chat Input Area */}
       <div className="p-4 border-t">
         <ChatInput onSend={handleSendMessage} />
       </div>
