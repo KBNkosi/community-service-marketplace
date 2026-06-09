@@ -9,8 +9,11 @@ node_modules/
 .env*.local
 .DS_Store
 
-# temporarily ignore markdown files
-*.md
+# temporarily ignore these markdown files
+ai-service-chatbot-design.md
+CODEBASE_GUIDE.md
+phase1-mvp-implementation.md
+feature-development.md
 
 # production builds
 dist/

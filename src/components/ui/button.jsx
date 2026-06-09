@@ -1,4 +1,5 @@
 import { cn } from '../../lib/utils'
+import { cloneElement } from 'react'
 
 // Simple Button component for consistent styling across the app
 function Button({ 
@@ -6,6 +7,7 @@ function Button({
   variant = 'default', 
   size = 'default', 
   children,
+  asChild = false,
   ...props 
 }) {
   
@@ -27,14 +29,24 @@ function Button({
     icon: 'h-10 w-10',
   }
 
+  const buttonClassName = cn(
+    baseStyles,
+    variants[variant],
+    sizes[size],
+    className
+  )
+
+  // If asChild is true, clone the child element and apply button styles to it
+  if (asChild && children) {
+    return cloneElement(children, {
+      className: cn(children.props.className, buttonClassName),
+      ...props
+    })
+  }
+
   return (
     <button
-      className={cn(
-        baseStyles,
-        variants[variant],
-        sizes[size],
-        className
-      )}
+      className={buttonClassName}
       {...props}
     >
       {children}

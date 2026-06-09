@@ -37,7 +37,7 @@ function AddRecommendation() {
     if (!formData.neighborhood) {
       newErrors.neighborhood = 'Please select a neighborhood'
     }
-    if (!formData.recommendationText.trim().length < 50) {
+    if (formData.recommendationText.trim().length < 50) {
       newErrors.recommendationText = 'Minimum 50 characters required'
     }
     if (formData.rating === 0) {

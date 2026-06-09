@@ -1,7 +1,7 @@
 import { Search } from 'lucide-react'
 import { Button, Input } from '../ui'
 
-// Step 1: SearchBar with hero variant support
+//SearchBar with hero variant support
 function SearchBar({ onSearch, placeholder = "Search...", className, variant = 'default' }) {
   if (variant === 'hero') {
     return (
