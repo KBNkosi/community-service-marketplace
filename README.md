@@ -3,7 +3,7 @@
 A community-driven marketplace for finding and trusting local service providers through real neighbor recommendations.
 
 **Live Demo**: [NeigbhborTrust](https://community-service-marketplace.vercel.app/)  
-**Repo**: [GitHub](https://github.com/KBNkosi/community-service-marketplace.git)
+**Repo**: [GitHub](https://github.com/KBNkosi/NeighborTrust.git)
 
 ---
 
