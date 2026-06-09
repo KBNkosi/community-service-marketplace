@@ -2,7 +2,7 @@
 
 A community-driven marketplace for finding and trusting local service providers through real neighbor recommendations.
 
-**Live Demo**: *(add link here)*  
+**Live Demo**: https://community-service-marketplace.vercel.app/  
 **Repo**: *(add link here)*
 
 ---
