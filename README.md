@@ -1,26 +1,91 @@
-# NeighborTrust - Community Service Marketplace
+# 🏡 NeighborTrust
 
-A community-driven platform where homeowners discover and verify local tradespeople through real neighbor recommendations. Find plumbers, electricians, handymen, and other service providers backed by genuine community feedback.
+A community-driven marketplace for finding and trusting local service providers through real neighbor recommendations.
 
-## 🎯 Features
+**Live Demo**: *(add link here)*  
+**Repo**: *(add link here)*
 
-- **Provider Discovery**: Browse and search verified local service providers by category and location
-- **Community Recommendations**: Read authentic reviews and recommendations from neighbors
-- **AI Chat Assistant**: Interactive chatbot to help you find the right provider based on your needs
-- **Provider Profiles**: View detailed profiles with ratings, specialties, and verified badges
-- **Recommendation System**: Share your own experience with local tradespeople
-- **Smart Filtering**: Filter providers by category, location, and rating
+---
+
+## The Problem
+
+Finding reliable local service providers is still fragmented, untrusted, and dependent on word-of-mouth or unverified listings.
+
+Users often face:
+- Fake or low-quality listings on directories
+- Lack of trust in online reviews
+- Difficulty comparing providers in their area
+- No simple way to get "trusted local recommendations"
+
+---
+
+## The Solution
+
+NeighborTrust simulates a trust-based discovery system where users can:
+
+- Find service providers in their local area
+- Rely on community recommendations instead of anonymous reviews
+- Explore structured provider profiles with ratings and specialties
+- Use an AI-assisted chat interface to quickly discover relevant providers
+
+The goal is to validate a **community-first service discovery experience**.
+
+---
+
+## 🎯 Key Features
+
+- **Search and discover** providers by category and location
+- **Community-based recommendations** and reviews
+- **AI-assisted chat interface** for provider discovery
+- **Structured provider profiles** with ratings and verification badges
+- **Simple recommendation submission** flow
+
+---
 
 ## 🛠️ Tech Stack
 
-- **Frontend Framework**: React 19
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS 4
-- **Routing**: React Router DOM 7
-- **Icons**: Lucide React
-- **Package Manager**: pnpm
+React 19 • Vite • Tailwind CSS 4 • React Router 7 • Lucide React • pnpm
 
-## 📁 Project Structure
+---
+
+## How It Works
+
+1. Users browse or search for a service category
+2. Providers are displayed using structured mock data
+3. Users can view full provider profiles and reviews
+4. Users can submit recommendations to simulate community input
+5. AI chat assistant helps users find relevant providers via intent-based queries
+
+---
+
+## 🏗️ Architecture Overview
+
+The project follows a modular, feature-based frontend structure:
+
+### Features Layer
+ChatBot • SearchBar • CategoryGrid • RecommendationCard • MessageBubble
+
+### Layout Layer
+Header • Footer • Layout wrapper
+
+### UI Layer
+Reusable components for inputs, buttons, cards, and badges
+
+### Data Layer
+Mock datasets simulate providers, reviews, and categories. AI chat logic uses keyword-based matching to simulate intent understanding.
+
+---
+
+## � Pages
+
+- **Home** (`/`) — Featured categories and discovery entry point
+- **Search** (`/search`) — Filter and browse providers
+- **Provider Profile** (`/tradesperson/:id`) — Detailed view with reviews
+- **Add Recommendation** (`/add-recommendation`) — Submit community feedback
+
+---
+
+## �📁 Project Structure
 
 ```
 src/
@@ -146,13 +211,6 @@ The chatbot uses keyword-based matching to understand user needs and recommend a
 5. User receives provider suggestions and can view details
 
 
-## 📖 Pages
-
-- **Home** (`/`) - Featured providers and service categories
-- **Search** (`/search`) - Search and filter providers by category and location
-- **Provider Detail** (`/tradesperson/:id`) - Full profile view with recommendations
-- **Add Recommendation** (`/add-recommendation`) - Submit a new recommendation
-
 ## 🎨 UI Components
 
 Reusable UI components located in `src/components/ui/`:
@@ -164,6 +222,24 @@ Reusable UI components located in `src/components/ui/`:
 - `label.jsx` - Form labels
 - `badge.jsx` - Status badges
 
+---
+
+## 🤖 AI-Assisted Development
+
+This project was built using AI-assisted development workflows to accelerate:
+
+- UI component generation and iteration
+- Feature prototyping and debugging
+- Rapid layout experimentation
+- Chat logic simulation and refinement
+
+AI was used as a development accelerator while maintaining full control over architecture, structure, and implementation decisions.
+
+---
+
+## ⚠️ Project Status
+
+Backend services (authentication, database, persistence) are not yet implemented as the focus is on frontend experience and concept validation.
 
 
 ## 🔧 Available Scripts
