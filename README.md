@@ -2,8 +2,8 @@
 
 A community-driven marketplace for finding and trusting local service providers through real neighbor recommendations.
 
-**Live Demo**: https://community-service-marketplace.vercel.app/  
-**Repo**: *(add link here)*
+**Live Demo**: [NeigbhborTrust](https://community-service-marketplace.vercel.app/)  
+**Repo**: [GitHub](https://github.com/KBNkosi/community-service-marketplace.git)
 
 ---
 
@@ -15,7 +15,7 @@ Users often face:
 - Fake or low-quality listings on directories
 - Lack of trust in online reviews
 - Difficulty comparing providers in their area
-- No simple way to get "trusted local recommendations"
+- No simple way to get "trusted local recommendations
 
 ---
 
