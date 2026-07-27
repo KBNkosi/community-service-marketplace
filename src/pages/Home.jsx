@@ -47,7 +47,7 @@ function Home() {
               Find Trusted Local Tradespeople
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 text-pretty">
-              Skip the guesswork. Discover skilled handymen, plumbers, electricians, and more—recommended by your real neighbors.
+              Skip the guesswork. Discover skilled handymen, plumbers, electricians, and more recommended by your real neighbors.
             </p>
           </div>
 
